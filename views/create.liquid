@@ -1,0 +1,70 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-sm text-center">
+    <form action="/tasks/new" method="POST">
+        <fieldset>
+            <h1 class="text-center">task Form </h1>
+                <div class="text-center">
+                    <legend class="text-center"> </legend>
+                    <label class="form-label text-center"> 
+                       Create task </label>
+
+                       title: { type: String, required: true },
+                       description: { type: String, required: true },
+                       cost: { type: Number, required: true },
+                       completed: { type: String, required: true },
+                       assigned: { type: String, required: true},
+                       checked: {type: Boolean},
+                        <input 
+                        type="text"
+                        name="title"
+                        placeholder="Title"
+                        class="form-control text-center"
+                        required
+                        >
+                        <input 
+                        type="text"
+                        name="description"
+                        placeholder="Description"
+                        class="form-control text-center"
+                        required
+                        >
+                        <input 
+                        type="number"
+                        name="cost"
+                        placeholder="cost"
+                        class="form-control text-center"
+                        required
+                        >
+    
+                        <input 
+                        id="date"
+                        type="text"
+                        name="date"
+                        placeholder="Date (DD/MM/YY)"
+                        class="form-control text-center"
+                        required
+                        >
+                        <input 
+                        type="text"
+                        name="assigned"
+                        placeholder="Assigned"
+                        class="form-control text-center"
+                        required
+                        >
+                        <!-- <select name="assigned">
+                            <option value="A">Setter A</option>
+                            <option value="B">Setter B</option>
+                            <option value="C">Setter C</option>
+                          </select>
+                    </fieldset> -->
+                <input type="submit" value="Submit task Form" class="btn btn-light">
+            </form>
+            <div class="text-center">
+                <a href="/tasks" class="btn btn-light">All tasks</a>
+            </div>
+        </div>
+    </br>
+    </div>
+    {% endblock %}
+    

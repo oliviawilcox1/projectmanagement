@@ -1,0 +1,94 @@
+{% layout "layout.liquid" %}
+{% block content %}
+    <h1 class="text-center">All tasks</h1>
+    </br>
+    </br>
+
+    <span class="text-center">
+        <h3>Filter </h3>
+          <form action="/tasks/show"> 
+            <input 
+            type="text"
+            name="order_number"
+            placeholder="Order Number"
+            class="form-control text-center"
+            type="submit"
+            >
+            <input 
+            type="text"
+            name="sku"
+            placeholder="Sku"
+            class="form-control text-center"
+            >
+            <select name="setter">
+              <option>Select</option>
+                <option value="A">Setter A</option>
+                <option value="B">Setter B</option>
+                <option value="C">Setter C</option>
+              </select>
+            <input 
+            type="text"
+            name="date"
+            placeholder="Date (DD/MM/YY)"
+            class="form-control text-center"
+            >
+            <input 
+            type="text"
+            name="description"
+            placeholder="Description"
+            class="form-control text-center"
+            >
+            <input type="submit"  class="btn btn-light">
+          </form> 
+        </span>
+ 
+    </br>
+ 
+  <table style="width:100%">
+    <tr>
+        <th> 
+            <form action="/tasks/checked?_method=PUT" method="POST">
+                <input type="submit" value="Check all Boxes" class="btn btn-light">
+            </form>
+            <form action="/tasks/unchecked?_method=PUT" method="POST">
+                <input type="submit" value="Uncheck all Boxes" class="btn btn-light">
+            </form>
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td> 
+            <form action="/tasks/checked/{{task._id}}?_method=PUT" method="POST">
+            <input  onChange="this.form.submit()" type="checkbox" name="checked" class="form-check-input"
+            {% if task.checked %}
+            checked
+            {% endif %}> 
+        </form>
+        </td>
+        <td>{{task.order_number}}</td>
+        <td> {{ task.sku }}</td>
+        <td>{{ task.quantity }}</td>
+        <td>{{ task.stones }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.setter }}</td>
+        <td> {{ task.createdAt.| slice: 0, 16}}</td>
+        <td>{{ task.owner.name | capitalize }}</td>
+        <td>
+          
+            <form action="/tasks/{{task._id }}?_method=DELETE" method="POST">
+                <input type="submit" value="Delete this task" class="btn btn-light">
+            </form>
+        </td>
+      {% endfor %}
+    </tr>
+  </table>
+{% endblock %}
