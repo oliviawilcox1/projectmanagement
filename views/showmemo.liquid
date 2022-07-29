@@ -1,0 +1,16 @@
+{% layout "layout.liquid" %}
+{% block content %}
+
+
+{% for memo in memos %} 
+                    Memo Number: {{ memo.order_number }}  </br>
+                    Task Title: {{ task.title }} </br>
+                    task Description: {{ task.description }} </br>
+                    Cost:{{ task.cost }} </br>
+                    Date created: {{ task.createdAt.| slice: 0, 16}} </br>
+                    Date Scheduled For: {{ task.scheduled }} </br>
+                    Assigned to: {{ task.assigned }} </br>
+                    Created By: {{ task.name | capitalize }} </br>
+            </div>
+{% endfor %}
+{% endblock %}

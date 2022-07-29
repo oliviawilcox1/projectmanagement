@@ -18,7 +18,7 @@ app.use('/memos', MemoRouter)
 
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session
-	res.render('home.liquid', { loggedIn, username, userId })
+	res.render('index.liquid', { loggedIn, username, userId })
 })
 
 app.get('/error', (req, res) => {

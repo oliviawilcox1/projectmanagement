@@ -7,10 +7,10 @@ const taskSchema = new Schema(
         title: { type: String, required: true },
 		description: { type: String, required: true },
 		cost: { type: Number, required: true },
-		completed: { type: Boolean, required: true },
-        date: { type: String, required: true },
+		date: { type: String, required: true},
+		scheduled: {type: String, required: true},
         assigned: { type: String, required: true},
-		completed: {type: Boolean},
+		checked: {type: Boolean},
         owner: {
 			type: Schema.Types.ObjectId,
 			ref: 'User',

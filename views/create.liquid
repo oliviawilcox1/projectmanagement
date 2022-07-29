@@ -3,18 +3,12 @@
 <div class="container-sm text-center">
     <form action="/tasks/new" method="POST">
         <fieldset>
-            <h1 class="text-center">task Form </h1>
+            <h1 class="text-center">Task Form </h1>
                 <div class="text-center">
                     <legend class="text-center"> </legend>
                     <label class="form-label text-center"> 
-                       Create task </label>
-
-                       title: { type: String, required: true },
-                       description: { type: String, required: true },
-                       cost: { type: Number, required: true },
-                       completed: { type: String, required: true },
-                       assigned: { type: String, required: true},
-                       checked: {type: Boolean},
+                       Create Task </label>
+                   
                         <input 
                         type="text"
                         name="title"
@@ -42,6 +36,13 @@
                         type="text"
                         name="date"
                         placeholder="Date (DD/MM/YY)"
+                        class="form-control text-center"
+                        required
+                        >
+                        <input 
+                        type="text"
+                        name="scheduled"
+                        placeholder="Scheduled For"
                         class="form-control text-center"
                         required
                         >
